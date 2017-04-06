@@ -1,34 +1,160 @@
+body {
+  background: #ddd;
+  text-align: center; 
+  font-family: consolas;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+main {
+  padding-top: 80px;
+  text-align: center; 
+  font-family: consolas;
+}
+
+a {
+  text-decoration: none;
+}
+
+#banner {
+  background-color: #33cc33 !important;
+  height: 80px;
+  box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-fixed-top {
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+.navbar {
+  min-height: 50px;
+  margin-bottom: 20px;
+}
+
+#banner .container {
+  padding-right: 10px;
+  padding-left: 10px
+}
+
+
+.navbar-collapse.collapse {
+  display: block!important;
+  height: auto!important;
+  padding-bottom: 0;
+  overflow: visible!important;
+}
+
+.navbar-collapse {
+  width: auto;
+  border-top: 0;
+  box-shadow: none;
+}
+
+.navbar-right {
+  float: right!important;
+  margin-right: 15px;
+}
+
+ul{
+  display: block;
+}
+
+.nav>li {
+  position: relative;
+  height: 100%;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  display: inline-flex;
+}
+
+.nav>li a {
+  padding: 10px 20px;
+}
+
+.navbar-nav>li {
+  float: left;
+}
+
+.navbar-nav>li>a {
+  line-height: 20px;
+}
+
+.nav>li>a {
+    position: relative;
+    display: block;
+}
+
+#card01f {
+  background-color: #99ff99;
+  border-radius: 0.5em;
+  border: solid 1em #99ff99;
+}
+
+#card01b {
+  background-color: #ccffcc;
+  border-radius: 0.5em;
+  border: solid 1em #ccffcc;
+}
+
+#card02f {
+  background-color: #99ccff;
+  border-radius: 0.5em;
+  border: solid 1em #99ccff;
+}
+
+#card02b {
+  background-color: #cce6ff;
+  border-radius: 0.5em;
+  border: solid 1em #cce6ff;
+}
+
+#card03f {
+  background-color: #ffffcc;
+  border-radius: 0.5em;
+  border: solid 1em #ffffcc;
+}
+
+#card03b {
+  background-color: #ffffcc;
+  border-radius: 0.5em;
+  border: solid 1em #ffffcc;
+}
+
 .flipContainer {
   position: relative;
-  margin: 10px auto;
+  margin: 20px auto;
   width: 95%;
   height: 281px;
   z-index: 1;
-}
-
-.flipContainer {
   perspective: 1000;
 }
 
-.flipcard {
+.hovercard {
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
   transition: all 1.0s linear;
 }
-.flipContainer:hover .flipcard {
+
+.flipContainer:hover .hovercard {
   transform: rotateY(180deg);
-  box-shadow: -5px 5px 5px #aaa;
 }
 
-.face {
+.hovercard .face {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
 }
 
-.face.back {
+.hovercard .face.back {
   display: block;
   transform: rotateY(180deg);
   box-sizing: border-box;
@@ -37,7 +163,7 @@
   text-align: center;
 }
 
-.face.front {
+.hovercard .face.front {
   display: block;
   box-sizing: border-box;
   padding: 10px;
@@ -45,26 +171,51 @@
   text-align: center;
 }
 
-#card01f {
-  background-color: #99ff99;
+.clickContainer {
+  position: relative;
+  margin: 20px auto;
+  width: 95%;
+  perspective: 1000;
 }
 
-#card01b {
-  background-color: #ccffcc;
+.clickcard {
+  margin: 1em auto;
+  border: solid 1em white;
+  border-radius: 0.5em;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: 1s;
+  cursor: pointer;
 }
 
-#card02f {
-  background-color: #99ccff;
+.clickcard:hover {
+  box-shadow: 0 0 1em black;
 }
 
-#card02b {
-  background-color: #cce6ff;
+.clickcard.flipped {
+  transform: rotatey(-180deg);
 }
 
-#card03f {
-  background-color: #ffffcc;
+.clickcard .face {
+  padding: 1em;
+  backface-visibility: hidden;
 }
 
-#card03b {
-  background-color: #ffffcc;
+.clickcard .front {
+  background: #99ff99;
+  display: block;
+}
+
+.clickcard.flipped .front {
+  display:none;
+}
+
+.clickcard .back {
+  background: #ccffcc;
+  transform: rotateY(180deg);
+  display:none;
+}
+
+.clickcard.flipped .back {
+  display:block;
 }
