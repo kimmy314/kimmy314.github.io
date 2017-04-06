@@ -1,245 +1,47 @@
-<!3D1O4CTYPE html>
+<!doctype html>
 <html>
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>
-$(function() {
-    // This is "main".  Code in here will run after the document has loaded.
-    // Code outside of this function will run before the document is loaded,
-    // so $("#warp"), for example, will be excecuted before the input is created
-    
-    var canvas = document.getElementById('canvas');
-    var ctx = canvas.getContext('2d');
-    
-	// warp width and spacing
-    var warpWidth = 16;
-    var warpSpacing = 5;
-    
-	// weft width and spacing
-    var weftWidth = 16;
-    var weftSpacing = 5;
-	
-	// creates new buttons
-    function newButton(id) {
-        var callback = function(event) {
-            var color = document.getElementById("c1");
-            event.target.style.background = color.value;
-            draw();
-        };
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+  
+  <div class=container>
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <div class="flipContainer">
+        <div class="flipcard shadow">
+          <div class="front face" id="card01f">
+            <h4> Aerospace engineer by day, software engineer by night </h4>
+          </div>
+          <div class="back face center" id="card01b">
+            <p>I am currently working for Honda Aircraft as a stress engineer and taking three classes in computer science at night. I have used what I've learned in school to develop tools at work to help automate task as well as complete complex analysis. When I'm not working or studying, I like to research different topics which I am unfamiliar with. I also enjoy basking in the sun, sci-fi shows, origami, weaving and taumatizing my cat. </p>
+          </div>
+        </div>
+        </div>
 
-        var button = $("<input type='button' id='"+id+"'/>");
-        
-        button.css({'background-color':document.getElementById("c1").value});
-        button.click(callback);
-        
-        return button;
-    }
-    
-    function setThreadCount(type, count) {
-        $("#" + type).val(count);
-        
-        var buttons = $("#"+type+"Buttons");
-        
-        for (var i = buttons.children().length; i < count; i++)
-            buttons.append(newButton(type + "Btn" + i));
-        
-        for (var i = buttons.children().length-1; i >= count; i--)
-            buttons.children()[i].remove();
-    }
-    
-    function setThreadColor(type, index, color) {
-        $("#" + type + "Btn" + index).css({"background-color": color});
-    }
-    
-    $("#warp").change(function() {
-        setThreadCount("warp", document.getElementById("warp").value);
-    });
-    
-    $("#weft").change(function() {
-        setThreadCount("weft", document.getElementById("weft").value);
-    });
-    
-    function drawWarp(x, y) {
-      var warpCol = $("#warpBtn" + x);
-      ctx.fillStyle = warpCol.css("background-color");
-      ctx.fillRect((weftWidth + weftSpacing) * x + (weftSpacing / 2), (warpWidth + warpSpacing) * y, weftWidth, warpWidth + warpSpacing);
-    }
+        <div class="flipContainer">
+        <div class="flipcard shadow">
+          <div class="front face" id="card02f">
+            Section Analysis Tool
+          </div>
+          <div class="back face center" id="card02b">
+            soemthing something
+          </div>
+        </div>
+        </div>
 
-    function drawWeft(x, y) {
-      var weftCol = $("#weftBtn" + y);
-      ctx.fillStyle = weftCol.css("background-color");
-      ctx.fillRect((weftWidth + warpSpacing) * x, (warpWidth + warpSpacing) * y + (warpSpacing / 2), weftWidth + weftSpacing, warpWidth);
-    }
-
-    $("#warp, #weft, #warpButtons, #weftButtons").change(draw);
+        <div class="flipContainer">
+        <div class="flipcard shadow">
+          <div class="front face" id="card03f">
+            Class Scheduler
+          </div>
+          <div class="back face center" id="card03b">
+            soemthing something
+          </div>
+        </div>
+        </div>
     
-    
-    function draw() {
-        save();
-        
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      var numWeft = document.getElementById("weft").value; // rows
-      var numWarp = document.getElementById("warp").value; // cols
-        
-      if (canvas.width != numWarp * (warpWidth + warpSpacing))
-          canvas.width  = numWarp * (warpWidth + warpSpacing);
-        
-      if (canvas.height != numWeft * (weftWidth + weftSpacing))
-          canvas.height  = numWeft * (weftWidth + weftSpacing);
-        
-      for (var y = 0; y < numWeft; ++y) {
-        for (var x = 0; x < numWarp; ++x) {
-          if ((y & 1) == (x & 1)) {
-            drawWeft(x, y);
-            drawWarp(x, y);
-          } else {
-            drawWarp(x, y);
-            drawWeft(x, y);
-          }
-        }
-      }
-    }
-    
-    
-    function makeHotKeys() {
-        var colorKeys = document.getElementById("hotkeys");
-        
-        for (var i = 0; i < 9; i++) {
-            var key = document.createElement("input");
-            key.type = "color";
-            key.id = "hk"+i;
-            colorKeys.appendChild(key);
-        }
-    }
-
-    document.onkeyup = function(e) {
-      if(e.keyCode >= 49 && e.keyCode <= 57) { // 1-9
-        var id = "hk" + (e.keyCode - 49);
-        var color = document.getElementById(id);
-        var picker = document.getElementById("c1");
-        picker.value = color.value;
-      }
-    }
-    
-    makeHotKeys();
-    
-    $("#warp, #weft").change();  // hack to make initial buttons present
-    
-    
-    $(function() {
-        var Loom = {};
-        
-        Loom.HTML = {};
-        Loom.HTML.ColorPicker = $("#c1");
-        Loom.HTML.WeftInput = $("#weft");
-        Loom.HTML.WarpInput = $("#warp");
-    });
-    
-    function save()
-    {
-        var data = {};
-        
-        data.warp = [];
-        for (var i = 0; i < $("#warp").val(); ++i)
-            data.warp[i] = $("#warpBtn" + i).css("background-color");
-        
-        data.weft = [];
-        for (var i = 0; i < $("#weft").val(); ++i)
-            data.weft[i] = $("#weftBtn" + i).css("background-color");
-        
-        data.hotkeys = [];
-        for (var i = 0; i <= 9; ++i)
-            data.hotkeys[i] = $("#hk" + i).val();
-        
-        data.colorPicker = $("#c1").val();
-        
-        var sstr = JSON.stringify(data);
-        
-        $("#serialization").val(btoa(sstr));
-    }
-    
-    $("#serialization").change(function() {
-        var data = JSON.parse(atob($("#serialization").val()));
-        
-        console.log(data);
-        
-        setThreadCount("warp", data.warp.length);
-        for (var i = 0; i < data.warp.length; ++i)
-            setThreadColor("warp", i, data.warp[i]);
-        
-        setThreadCount("weft", data.weft.length);
-        for (var i = 0; i < data.weft.length; ++i)
-            setThreadColor("weft", i, data.weft[i]);
-        
-        for (var i = 0; i <= 9; ++i)
-            $("#hk" + i).val(data.hotkeys[i]);
-        
-        $("#c1").val(data.colorPicker);
-        
-        draw();
-    });
-});
-</script>
-    <style type="text/css">
-        #weftButtons>input, #warpButtons>input {
-            padding: 0px !important;
-            margin: 2.5px !important;
-            display: block-inline;
-            float: left;
-            border:1px solid black;
-            width: 16px;
-            height: 16px;
-        }
-        
-        #hotkeys>input {
-            padding: 0px !important;
-            margin: 2.5px !important;
-            display: block-inline;
-            float: left;
-            border:1px solid black;
-            width: 16px;
-            height: 16px;
-        }
-		
-    </style>
-</head>
-<body bgcolor="#c1d7d7">
-	<h1> Simple Weave <h1>
-	<h3> Create a simple under-over weaving pattern! </h3>
-	Share your design!
-	<br/>
-    <textarea id="serialization"></textarea><br/>
-	<br/>
-	<br/>
-    Weft (number of rows):<br/><input type="number" id="weft" value=2 />
-    <br/>
-    Warp (number of cols):<br/><input type="number" id="warp" value=2 />
-    <br/>
-	Hotkeys:
-    <table style="width:400px">
-        <tr>
-            <td><!-- top-right --></td>
-            <td>&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;9 </td>
-        </tr>
-        <tr>
-            <td><!-- top-right --></td>
-            <td><div id="hotkeys"></div></td>
-        </tr>
-    </table>
-    <br/>
-    <input type="color" id="c1" value="#ffff00" /> Color Picker!<br/>
-    <table>
-        <tr>
-            <td><!-- top-right --></td>
-            <td><div id="warpButtons"></div></td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top; width: 20px"><div id="weftButtons"></div></td>
-            <td style="vertical-align: top;"><canvas id="canvas" style="border: solid 1px black;" width="300" height="300"></canvas></td>
-        </tr>
-    </table>
-    <br/>
-    
-</body>    
+      </div> <!--end col -->
+    </div> <!--end row -->
+  </div> <!--end container -->
+  
+  <script type="text/javascript" src="js/index.js"></script>
+  
 </html>
