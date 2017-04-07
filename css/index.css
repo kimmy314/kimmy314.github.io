@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
 body {
   background: #ddd;
   text-align: center; 
@@ -8,6 +10,12 @@ header {
   position: fixed;
   top: 0;
   width: 100%
+}
+
+h1 {
+  float:left;
+  font-family: 'Lobster';
+  font-size: 43px;
 }
 
 main {
