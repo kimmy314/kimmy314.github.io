@@ -17,9 +17,8 @@ main {
 }
 
 img {
-  height: 250px;
   hspace: 10px;
-  vspace: 10px
+  vspace: 10px;
 }
 
 a {
@@ -34,6 +33,22 @@ ul{
   background-color: #33cc33 !important;
   height: 80px;
   box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.cardsAM>div>img {
+  width: 25%;
+  padding: 2%;
+  max-width: 300px;
+}
+
+.cards3>div>img {
+  width: 30%;
+  padding: 1%;
+}
+
+.cards2>div>img {
+  width: 47%;
+  padding: 1%;
 }
 
 .navbar-fixed-top {
@@ -99,85 +114,71 @@ ul{
 
 #card01f {
   background-color: #99ff99;
-  border-radius: 0.5em;
   border: solid 1em #99ff99;
 }
 
 #card01b {
   background-color: #ccffcc;
-  border-radius: 0.5em;
   border: solid 1em #ccffcc;
 }
 
 #card02f {
   background-color: #99ccff;
-  border-radius: 0.5em;
   border: solid 1em #99ccff;
 }
 
 #card02b {
   background-color: #cce6ff;
-  border-radius: 0.5em;
   border: solid 1em #cce6ff;
 }
 
 #card03f {
   background-color: #ffffcc;
-  border-radius: 0.5em;
   border: solid 1em #ffffcc;
 }
 
 #card03b {
   background-color: #ffffcc;
-  border-radius: 0.5em;
   border: solid 1em #ffffcc;
 }
 
 #card04f {
   background-color: #ffcc99;
-  border-radius: 0.5em;
   border: solid 1em #ffcc99;
 }
 
 #card04b {
   background-color: #ffe6cc;
-  border-radius: 0.5em;
   border: solid 1em #ffe6cc;
 }
 
 #card05f {
   background-color: #f2e6ff;
-  border-radius: 0.5em;
   border: solid 1em #f2e6ff;
 }
 
 #card05b {
   background-color: #e6ccff;
-  border-radius: 0.5em;
   border: solid 1em #e6ccff;
 }
 
 #card06f {
   background-color: #ffe6e6;
-  border-radius: 0.5em;
   border: solid 1em #ffe6e6;
 }
 
 #card06b {
   background-color: #ffcccc;
-  border-radius: 0.5em;
   border: solid 1em #ffcccc;
 }
 
 #card07f {
   background-color: #ffffe6;
-  border-radius: 0.5em;
   border: solid 1em #ffffe6;
 }
 
 #card07b {
   background-color: #ffffcc;
-  border-radius: 0.5em;
   border: solid 1em #ffffcc;
 }
 
@@ -189,14 +190,12 @@ ul{
   position: relative;
   margin: 20px auto;
   width: 95%;
-  height: 300px;
   z-index: 1;
   perspective: 1000;
 }
 
 .hovercard {
   width: 100%;
-  height: 100%;
   transform-style: preserve-3d;
   transition: all 1s linear;
 }
@@ -215,14 +214,12 @@ ul{
 .hovercard .face.back {
   display: block;
   transform: rotateY(180deg);
-  box-sizing: border-box;
   color: black;
   text-align: center;
 }
 
 .hovercard .face.front {
   display: block;
-  box-sizing: border-box;
   color: black;
   text-align: center;
 }
@@ -239,6 +236,9 @@ ul{
   transform-style: preserve-3d;
   transition: 1s;
   cursor: pointer;
+  border: solid 1em;
+  border-color: transparent;
+  border-radius: 0.5em;
 }
 
 .clickcard:hover {
@@ -246,7 +246,7 @@ ul{
 }
 
 .clickcard.flipped {
-  transform: rotatey(-180deg);
+  transform: rotateX(-180deg);
 }
 
 .clickcard .face {
@@ -265,7 +265,7 @@ ul{
 
 .clickcard .back {
   background: #ccffcc;
-  transform: rotateY(180deg);
+  transform: rotateX(180deg);
   display:none;
 }
 
