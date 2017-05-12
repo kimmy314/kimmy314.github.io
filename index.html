@@ -45,12 +45,13 @@
               
               This tool was created in Python based using MVC and OOP practices. <br/><br/>
               
-              The tool takes in simple polygons and calculates the principal moments of inertia along withe the theta relative to the graph x axis. The tool also is able to calculate stresses and locate the minum and maximum stress points for a given load. This allows for users to quickly identify the critical locations and determine if a section fails based on an input load. <br/><br/>
+              The tool takes in simple polygons and calculates the principal moments of inertia along with the theta relative to the graph x axis. The tool also is able to calculate stresses and locate the minimum and maximum stress points for a given load. This allows for users to quickly identify the critical locations and determine if a section fails based on an input load. <br/><br/>
               
-              A little bit about the design details. An abtract <b>shape</b> class has fields which contain gemetry details such as Xcg. The class calculates generic CG positions as well and declares a <b>calculateMOIAboutCG</b> function and defines a <b>calculateMOIAboutZed</b><br/><br/>
+              A little bit about the design details. An abtract <b>shape</b> class has fields which contain geometry details such as Xcg. The class calculates generic CG positions as well and declares a <b>calculateMOIAboutCG</b> function and defines a <b>calculateMOIAboutZed</b><br/><br/>
               
-              The <b>calculateZed</b> is defined within shapes since once a moment of inertia about the CG is found, the MOI about the 0,0 position is simply IXX + A_total * Xcg ^ 2. <b>calculateMOIAboutCG</b> on the otherhand is delegated to the subclass <b>Rectangle, Circle and Polygon</b>. Although each shape's MOI could be calculated based off poly's method, it is far more efficient to have Rectangle and Circle seperate where they can call an O(1) method for calculating versus poly's O(n) method where n is the number of verticies.
+              The <b> calculateMOIAboutZed </b> is defined within shapes since once a moment of inertia about the CG is found, the MOI about the 0,0 position is simply IXX + A_total * Xcg ^ 2. <b>calculateMOIAboutCG</b> on the other hand is delegated to the subclass <b>Rectangle, Circle and Polygon</b>. Although each shape's MOI could be calculated based off poly's method, it is far more efficient to have Rectangle and Circle separate where they can call an O(1) method for calculating versus poly's O(n) method where n is the number of vertices.
               </p>
+
             </div>
           </div>
           
