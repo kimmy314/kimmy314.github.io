@@ -37,6 +37,12 @@ ul{
   display: block;
 }
 
+p{
+  text-align: left; 
+  width: 75%;
+  padding-left: 25%;
+}
+
 #banner {
   background-color: #33cc33 !important;
   height: 80px;
@@ -49,13 +55,18 @@ ul{
   max-width: 300px;
 }
 
-.cards3>div>img {
+.cards3>img {
   width: 30%;
   padding: 1%;
 }
 
-.cards2>div>img {
+.cards2>img {
   width: 47%;
+  padding: 1%;
+}
+
+.cards2>img {
+  width: 95%;
   padding: 1%;
 }
 
@@ -120,72 +131,72 @@ ul{
     display: block;
 }
 
-#card01f {
+.card01f {
   background-color: #99ff99;
   border: solid 1em #99ff99;
 }
 
-#card01b {
+.card01b {
   background-color: #ccffcc;
   border: solid 1em #ccffcc;
 }
 
-#card02f {
+.card02f {
   background-color: #99ccff;
   border: solid 1em #99ccff;
 }
 
-#card02b {
+.card02b {
   background-color: #cce6ff;
   border: solid 1em #cce6ff;
 }
 
-#card03f {
+.card03f {
   background-color: #ffffcc;
   border: solid 1em #ffffcc;
 }
 
-#card03b {
+.card03b {
   background-color: #ffffcc;
   border: solid 1em #ffffcc;
 }
 
-#card04f {
+.card04f {
   background-color: #ffcc99;
   border: solid 1em #ffcc99;
 }
 
-#card04b {
+.card04b {
   background-color: #ffe6cc;
   border: solid 1em #ffe6cc;
 }
 
-#card05f {
+.card05f {
   background-color: #f2e6ff;
   border: solid 1em #f2e6ff;
 }
 
-#card05b {
+.card05b {
   background-color: #e6ccff;
   border: solid 1em #e6ccff;
 }
 
-#card06f {
+.card06f {
   background-color: #ffe6e6;
   border: solid 1em #ffe6e6;
 }
 
-#card06b {
+.card06b {
   background-color: #ffcccc;
   border: solid 1em #ffcccc;
 }
 
-#card07f {
+.card07f {
   background-color: #ffffe6;
   border: solid 1em #ffffe6;
 }
 
-#card07b {
+.card07b {
   background-color: #ffffcc;
   border: solid 1em #ffffcc;
 }
@@ -194,89 +205,38 @@ ul{
   height: 900px;
 }
 
-.flipContainer {
-  position: relative;
-  margin: 20px auto;
-  width: 95%;
-  z-index: 1;
-  perspective: 1000;
+/*----- Accordion -----*/
+.accordion, .accordion * {
+    -webkit-box-sizing:border-box; 
+    -moz-box-sizing:border-box; 
+    box-sizing:border-box;
+    margin:0px;
 }
-
-.hovercard {
-  width: 100%;
-  transform-style: preserve-3d;
-  transition: all 1s linear;
+ 
+.accordion {
+    overflow:hidden;
 }
-
-.flipContainer:hover .hovercard {
-  transform: rotateY(180deg);
+ 
+/*----- Titles -----*/
+.accordion-title {
+    width:100%;
+    padding:15px;
+    display:inline-block;
+    transition:all linear 0.15s;
+    /* Type */
+    font-size:1.200em;
+    text-shadow:0px 1px 0px #1a1a1a;
+    color:#000;
 }
-
-.hovercard .face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
+ 
+.accordion-title.active, .accordion-title:hover {
+    background:#fff;
+    /* Type */
+    text-decoration:none;
 }
-
-.hovercard .face.back {
-  display: block;
-  transform: rotateY(180deg);
-  color: black;
-  text-align: center;
-}
-
-.hovercard .face.front {
-  display: block;
-  color: black;
-  text-align: center;
-}
-
-.clickContainer {
-  position: relative;
-  margin: 20px auto;
-  width: 95%;
-  perspective: 1000;
-}
-
-.clickcard {
-  width: 100%;
-  transform-style: preserve-3d;
-  transition: 1s;
-  cursor: pointer;
-  border: solid 1em;
-  border-color: transparent;
-  border-radius: 0.5em;
-}
-
-.clickcard:hover {
-  box-shadow: 0 0 1em black;
-}
-
-.clickcard.flipped {
-  transform: rotateX(-180deg);
-}
-
-.clickcard .face {
-  padding: 1em;
-  backface-visibility: hidden;
-}
-
-.clickcard .front {
-  background: #99ff99;
-  display: block;
-}
-
-.clickcard.flipped .front {
-  display:none;
-}
-
-.clickcard .back {
-  background: #ccffcc;
-  transform: rotateX(180deg);
-  display:none;
-}
-
-.clickcard.flipped .back {
-  display:block;
+ 
+/*----- Content -----*/
+.accordion-content {
+    padding:15px;
+    display:none;
 }
