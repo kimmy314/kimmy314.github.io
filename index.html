@@ -43,7 +43,7 @@
               
               <p>Tool I designed and developed to increase the efficiency of analyzing sections. <br/><br/>
               
-              This tool was created in Python based using MVC and OOP practices. <br/><br/>
+              This tool was created in Python using MVC design pattern using OOP practices. <br/><br/>
               
               The tool takes in simple polygons and calculates the principal moments of inertia along with the theta relative to the graph x axis. The tool also is able to calculate stresses and locate the minimum and maximum stress points for a given load. This allows for users to quickly identify the critical locations and determine if a section fails based on an input load. <br/><br/>
               
@@ -62,6 +62,14 @@
               <img src="pics/class_sched01.png"></img>
               <img src="pics/class_sched02.png"></img>
               <img src="pics/class_sched03.png"></img>
+              
+              
+            <p><br/><br/>
+            
+            This scheduler was created in Java using MVC and singleton design patters using OOP practices. <br/><br/>
+            
+            Users have unique ids and are based on their level they will have different features. For instance when a registrar logins they will be able to edit list of student users and list of faculty users (middle image) along with the list of classes (right image). When a student logs in they will only be able to edit their class scheduler (left image) by adding or dropping the course. If the course is full, they will automatically be added to the waitlist queue.
+            </p>
             </div>
           </div>
           
@@ -71,6 +79,15 @@
             <div id="accordion-3" class="accordion-content cards2 card05b">
               <img src="pics/ticket01.png"></img>
               <img src="pics/ticket02.png"></img>
+              
+              <p><br/><br/>
+            
+            This scheduler was created in Java with a Finite State Machine design patter using OOP practices. <br/><br/>
+            
+            Tickets have a state one of <b> New, Assigned, Working, Feedback and Closed.</b> Based on the state, when a user pics and option the ticket will transfer to an appropriate state and on edit bring the proper view.<br/><br/>
+            
+            The left image shows a list of tickets, their current state and their title. The right iamge shows the details of ticket item 2. The ticket is current in the <b>Assigned</b> state and if the <i>Accept</i> button is pressed the ticket will transition into the <b>Working</b> state. If the <i>Closed</i> button is pressed then the ticket transitions to the <b>Closed</b> state.<br/><br/>
+            </p>
             </div>
           </div>
           
@@ -80,6 +97,13 @@
             <div id="accordion-4" class="accordion-content cards2 card06f">
               <img src="pics/tdl01.png"></img>
               <img src="pics/tdl02.png"></img>
+              
+            <p><br/><br/>
+            
+            This manager was created in Java with an Observer design patter using OOP practices. <br/><br/>
+            
+            The <b>TaskListManager</b> observers a <b>TaskList</b> which observes a <b>Task</b>. If a <b>Task</b> is changed(add, delete, edit) then only the list area gets updated. If a <b>TaskList</b> is (add, delete, edit) then the tabs at the top change appropriately. When the fields for a task are entered, they fields will only update if the fields are valid, otherwise the data remains static so the user is able to edit any mistakes.
+            </p>
             </div>
           </div>
           
@@ -90,6 +114,13 @@
               <img src="pics/eco_sys01.png"></img>
               <img src="pics/eco_sys02.png"></img>
               <img src="pics/eco_sys03.png"></img>
+              
+              <p><br/><br/>
+              
+              This simulator was created in Java with an MVC design patter using OOP practices. <br/><br/>
+              
+              Animals have ranks, based on their rank they act differently. An animal can be a <b>Low, Middle, or High</b> ranked animal. Each animal has a wait time for breeding, a time span which they must eat a meal otherwise they starve to death, an age limit, a color and a symbol. In this simulation animals of lower rank live longer, but are incapable of eating, therefore they will always die either from old age or being eaten. <b>Low</b> tier animals at the start of the round will always try to breed first if they can, otherwise they will move to a random location. <b>Middle</b> tier animals at the start of the round will try to breed, eat then move. <b>High</b> tier animals at the start of the round will try to eat, breed then move. Animals will only ever do one action per round and if one dies from starvation, then they will be left on the board until the round is fully complete to allow animals to eat the corpse.
+              </p>
             </div>
           </div>
         </div>
