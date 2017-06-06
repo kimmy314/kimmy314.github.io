@@ -110,7 +110,13 @@
             
             A simple to do list application which allows for users to create/edit/delete categorities and create/edit/delete multiple task list. The application allows for multiple task list soo that users can seperate task as they deem fit.<br/><br/>
             
+
             Overall task list presents task with a unique ID, a task title, the start date, optional due date and complete date as well as a completed state and category of task. To view a taks' detail, the user clicks on the task which they'd like to know more about. To delete the selected task, the user must go into the task menu and is asked for confirmation.<br/><br/>
+
+            The application allows the user to create, delete and edit categories. Categories are there to help organize the task list such that suers can easily deteminr the most important task to the least importance by assigning a priority if wanted. User can also have multiple task list so that they can seperate certain tasks such as a list for school activities and a list for errands. Each list contains individual task with the start/end date and details of the task. <br/><br/>
+              
+              The <b>TaskListManager</b> observers a <b>TaskList</b> which observes a <b>Task</b>. If a <b>Task</b> is changed(add, delete, edit) then only the list area gets updated. If a <b>TaskList</b> is (add, delete, edit) then the tabs at the top change appropriately. When the fields for a task are entered, they fields will only update if the fields are valid, otherwise the data remains static so the user is able to edit any mistakes.
+
             </p>
             </div>
           </div>
