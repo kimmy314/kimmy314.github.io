@@ -136,6 +136,26 @@
               </p>
             </div>
           </div>
+          
+          <div class="accordion-section">
+            <h3 class="accordion-title card03b" href="#accordion-6">
+            Velocity Potential Equations Solver </h3>
+            <div id="accordion-6" class="accordion-content cards3 card03b">
+              <img src="pics/af_M01_w1p9_uz.png"></img>
+              <img src="pics/M01_w165_rho.png"></img>
+              <img src="pics/af_M01_w1p9_CPss.png"></img>
+              
+              <p>
+              Solves the VPE using SSOR method<br/><br/>
+              
+              The symmetric successive over relation method was used to solved the VPE. The residual is calculated before any boundary conditions are setup and is saved. The residual is used later in order to apply free-stream subtraction to reduce geometric conservation-law errors.<br/><br/>
+
+              At each iteration the convergence of the solution was checked. If the solution has not converged then the SSOR method was applied. This is done by using a Forwards and Backwards SOR method. The model was considered converged once the relative residual was no larger than 1E-4.<br/><br/>
+              
+              The end result of the solver is a Cp vs X/c plots, Mach number distributions along slip surfaces, contours of velocity magnitude with streamlines and convergence histories with varying omegas.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
       
