@@ -65,8 +65,9 @@ p{
   padding: 1%;
 }
 
-.cards1>img {
-  width: 75%;
+.cards1>embed {
+  width: 95%;
+  height: 1200px;
   padding: 1%;
 }
 
